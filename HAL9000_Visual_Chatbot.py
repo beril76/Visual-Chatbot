@@ -81,7 +81,7 @@ def chat(passage):
 
 def main():
     
-    menu = ["Chatbot","Gallery","About"]
+    menu = ["Chatbot","About"]
     choice = st.sidebar.selectbox("Menu",menu)
     if choice == "Chatbot":
         st.title("HAL9000")
