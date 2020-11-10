@@ -157,4 +157,3 @@ wrapt==1.12.1
 yarl==1.6.0
 zipp==3.2.0
 zope.interface==5.1.2
-streamlit
