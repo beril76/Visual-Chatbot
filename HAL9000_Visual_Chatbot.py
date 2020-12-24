@@ -29,9 +29,9 @@ def classify():
     model = load_model("AISUCCESS3_with_new_train.h5")
     
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-    ph="Bekal_Fort9.jpg"
+    #ph="Bekal_Fort9.jpg"
     
-    img = load_img(ph, target_size=(227,227))
+    img = load_img(uploaded_file, target_size=(227,227))
     img = img_to_array(img)
     img = np.expand_dims(img, axis=0)
     classes = model.predict_classes(img, batch_size=10)
@@ -39,11 +39,11 @@ def classify():
 
     place=spot[classes[0]]
     if ph is not None:
-        image = Image.open(ph)
-        buf = io.BytesIO()
-        image.save(buf, format='JPEG')
-        byte_im = buf.getvalue()
-        st.image(byte_im, caption='Uploaded Image.', use_column_width=True)
+        image = Image.open(uploaded_file)
+        #buf = io.BytesIO()
+        #image.save(buf, format='JPEG')
+        #byte_im = buf.getvalue()
+        st.image(image, caption='Uploaded Image.', use_column_width=True)
         st.write("")
         
         st.write("Classifying . . . . . . . . . . . . . . .")
