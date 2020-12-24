@@ -70,7 +70,7 @@ def chat(passage):
         date_string = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
         filename = "voice"+date_string+".ogg"
         myobj.save(filename)
-        name = "C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\Final Work\\"+filename
+        name = "Audio/"+filename
         audio_file = open(name, 'rb')
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format='audio/ogg')
