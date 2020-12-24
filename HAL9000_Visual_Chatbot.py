@@ -26,7 +26,7 @@ def classify():
     st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420)
     st.write("Hi! May I help you with the place?")
     #ph=st.text_input("Enter the image path .... ")
-    model = load_model("C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\AISUCCESS3_with_new_train.h5")
+    model = load_model("AISUCCESS3_with_new_train.h5")
     
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     ph="C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Bekal_Fort9.jpg"
@@ -89,7 +89,7 @@ def main():
         st.write(" Did I Get it Right?")
         choose=st.selectbox("Choose",x)
         if choose == "Yes":
-            name = "C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Text Data\\"+location+".txt"
+            name = "Text Data\\"+location+".txt"
             with open(name, mode="r",encoding="utf-8" ) as input_file:
                 passage = input_file.read()
             chat(passage)
@@ -97,13 +97,13 @@ def main():
             st.write(" I'm really sorry for that.")
             labels=['Agra Fort','Ajanta and Ellora Caves','Amer Fort','Bangalore Palace','Basilica of Bom Jesus','Bekal Fort','Charminar','City Palace','Elephanta Cave','Fatehpur Sikri','Gateway of India','Gingee Fort','Golden Temple','Golkonda Fort','Gwalior Fort','Hawa Mahal','Hill Palace','Howrah Bridge','Humayuns Tomb','India Gate','Jama Masjid','Janta Mantir','Kaye Monastry','Konark Sun Temple','Lotus Temple','Madurai Meenakshi Temple','Mysore Palace','Nalanda University','Qutub Minar','Ran ki Vav','Rashtrapati Bhavan','Red Fort','Sanchi Stupa','Shore Temple Mahabalipuram','Taj Mahal','Thanjavur Chola Temple','Victoria Memorial','Victoria Terminal','Vidhana Soudha','Vivekananda Rock Memorial']
             tour= st.selectbox('Please Choose the location to continue chatting', labels )
-            name = "C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Text Data\\"+tour+".txt"
+            name = "Text Data\\"+tour+".txt"
             with open(name, mode="r",encoding="utf-8" ) as input_file:
                 passage = input_file.read()
             chat(passage)
              
     elif choice =="About":
-        webbrowser.open_new_tab("C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\about.html")
+        webbrowser.open_new_tab("about.html")
     
          
 if __name__ == '__main__':
