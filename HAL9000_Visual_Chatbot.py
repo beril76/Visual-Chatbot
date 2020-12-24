@@ -44,13 +44,12 @@ def classify():
     	temp_file.write(uploaded_file.getvalue())
     	st.write(load_img(temp_file.name))
 	
-	'''
-        image = Image.open(uploaded_file)
-        buf = io.BytesIO()
-        image.save(buf, format='JPEG')
-        byte_im = buf.getvalue()
-        st.image(image, caption='Uploaded Image.', use_column_width=True)
-	'''
+	#image = Image.open(uploaded_file)
+        #buf = io.BytesIO()
+        #image.save(buf, format='JPEG')
+        #byte_im = buf.getvalue()
+        #st.image(image, caption='Uploaded Image.', use_column_width=True)
+	
         st.write("")
         st.write("Classifying . . . . . . . . . . . . . . .")
         st.write("Classified")
