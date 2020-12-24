@@ -41,17 +41,17 @@ def classify():
 
     place=spot[classes[0]]
     if uploaded_file:
-		temp_file.write(uploaded_file.getvalue())
-		st.write(load_img(temp_file.name))
-	#image = Image.open(uploaded_file)
-        #buf = io.BytesIO()
-        #image.save(buf, format='JPEG')
-        #byte_im = buf.getvalue()
-        #st.image(image, caption='Uploaded Image.', use_column_width=True)
-		st.write(" ")
-		st.write("Classifying . . . . . . . . . . . . . . .")
-		st.write("Classified")
-		st.subheader('You are at %s ' % (spot[classes[0]]))
+    	temp_file.write(uploaded_file.getvalue())
+    	st.write(load_img(temp_file.name))
+    	#image = Image.open(uploaded_file)
+    	#buf = io.BytesIO()
+    	#image.save(buf, format='JPEG')
+    	#byte_im = buf.getvalue()
+    	#st.image(image, caption='Uploaded Image.', use_column_width=True)
+    	st.write(" ")
+    	st.write("Classifying . . . . . . . . . . . . . . .")
+    	st.write("Classified")
+    	st.subheader('You are at %s ' % (spot[classes[0]]))
     return place
 
 def chat(passage):
