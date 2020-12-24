@@ -50,7 +50,7 @@ def classify():
         #byte_im = buf.getvalue()
         #st.image(image, caption='Uploaded Image.', use_column_width=True)
 	
-        st.write(" ")
+	st.write(" ")
         st.write("Classifying . . . . . . . . . . . . . . .")
         st.write("Classified")
         st.subheader('You are at %s ' % (spot[classes[0]]))
