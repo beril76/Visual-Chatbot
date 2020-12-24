@@ -1,12 +1,7 @@
-"Direct path given | Image printed as bytes | Speech | About | YesorNo"
-import numpy as np # linear algebra
-#import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-#import matplotlib.pyplot as plt
-#import matplotlib.image as mpimg
-#import random
+''' THIS IS THE SPYDER CODE FOR RUNNING IN STREAMLIT '''
+
+import numpy as np 
 import os
-#from pathlib import Path
-#import tensorflow as tf
 import io
 import datetime
 from gtts import gTTS 
@@ -28,9 +23,14 @@ from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.models import load_model
  
 def classify():
+    st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420)
     st.write("Hi! May I help you with the place?")
-    ph=st.text_input("Enter the image path .... ")
-    model = load_model("AISUCCESS3_with_new_train.h5")
+    #ph=st.text_input("Enter the image path .... ")
+    model = load_model("C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\AISUCCESS3_with_new_train.h5")
+    
+    uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+    ph="C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Bekal_Fort9.jpg"
+    
     img = load_img(ph, target_size=(227,227))
     img = img_to_array(img)
     img = np.expand_dims(img, axis=0)
@@ -48,7 +48,6 @@ def classify():
         
         st.write("Classifying . . . . . . . . . . . . . . .")
         st.write("Classified")
-        
         st.subheader('You are at %s ' % (spot[classes[0]]))
     return place
 
@@ -58,7 +57,9 @@ def chat(passage):
     st.write("**type _bye_ to end the chat")
     while True:
         inp = st.text_input("You: ", key='1')
+        
         if inp.lower() == "bye":
+            st.text_area("Bot:", value="Thank You, Have a nice day!", height=200, max_chars=None, key=None)
             break
         result = predictor.predict(passage=passage,question=inp)
         response = result['best_span_str']
@@ -69,16 +70,12 @@ def chat(passage):
         date_string = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
         filename = "voice"+date_string+".ogg"
         myobj.save(filename)
-        name = "C:\\Users\\91965\\Documents\\BDA SEM III\\MOM\\MOM AI Project\\TryInHP\\"+filename
+        name = "C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\Final Work\\"+filename
         audio_file = open(name, 'rb')
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format='audio/ogg')
         os.remove(name)
         
-#Width: 945
-#Height: 788
-            
-
 def main():
     
     menu = ["Chatbot","About"]
@@ -92,30 +89,50 @@ def main():
         st.write(" Did I Get it Right?")
         choose=st.selectbox("Choose",x)
         if choose == "Yes":
-            name = "Text Data\\"+location+".txt"
+            name = "C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Text Data\\"+location+".txt"
             with open(name, mode="r",encoding="utf-8" ) as input_file:
-                passage = input_file.read()#.encode("utf-8")
+                passage = input_file.read()
             chat(passage)
         else:
             st.write(" I'm really sorry for that.")
             labels=['Agra Fort','Ajanta and Ellora Caves','Amer Fort','Bangalore Palace','Basilica of Bom Jesus','Bekal Fort','Charminar','City Palace','Elephanta Cave','Fatehpur Sikri','Gateway of India','Gingee Fort','Golden Temple','Golkonda Fort','Gwalior Fort','Hawa Mahal','Hill Palace','Howrah Bridge','Humayuns Tomb','India Gate','Jama Masjid','Janta Mantir','Kaye Monastry','Konark Sun Temple','Lotus Temple','Madurai Meenakshi Temple','Mysore Palace','Nalanda University','Qutub Minar','Ran ki Vav','Rashtrapati Bhavan','Red Fort','Sanchi Stupa','Shore Temple Mahabalipuram','Taj Mahal','Thanjavur Chola Temple','Victoria Memorial','Victoria Terminal','Vidhana Soudha','Vivekananda Rock Memorial']
             tour= st.selectbox('Please Choose the location to continue chatting', labels )
-            name = "Text Data\\"+tour+".txt"
+            name = "C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Text Data\\"+tour+".txt"
             with open(name, mode="r",encoding="utf-8" ) as input_file:
                 passage = input_file.read()
             chat(passage)
-            
+             
     elif choice =="About":
-        webbrowser.open_new_tab("about.html")
+        webbrowser.open_new_tab("C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\about.html")
+    
          
 if __name__ == '__main__':
 	main()
 
+# activate visualbot
+    
+# cd C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\Final Work
+    
+# streamlit run Streamlit Code.py
+    
+    
+    
+    
+# C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Bekal_Fort9.jpg
+    
+# C:\Users\91965\Documents\BDA SEM III\1 MOM\MOM AI Project\TryInHP\Bekal_Fort9.jpg
+    
+# C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Agra_Fort0.jpg
+    
+# C:\Users\91965\Documents\BDA SEM III\1 MOM\MOM AI Project\Data\Jama Masjid\Jama_Masjid6.jpg
 
+# How far is Agra Fort from Taj Mahal?
+    
+# Who built Bekal Fort?
+    
+# When was Bekal Fort build?
+    
+# What is Jama masjid?
 
-        
-
-        
-        
-        
+ 
         
