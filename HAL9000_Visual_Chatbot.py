@@ -29,7 +29,7 @@ def classify():
     model = load_model("AISUCCESS3_with_new_train.h5")
     
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-    ph="C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Bekal_Fort9.jpg"
+    ph="Bekal_Fort9.jpg"
     
     img = load_img(ph, target_size=(227,227))
     img = img_to_array(img)
