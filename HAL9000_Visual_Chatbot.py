@@ -107,32 +107,4 @@ def main():
     
          
 if __name__ == '__main__':
-	main()
-
-# activate visualbot
-    
-# cd C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\Final Work
-    
-# streamlit run Streamlit Code.py
-    
-    
-    
-    
-# C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Bekal_Fort9.jpg
-    
-# C:\Users\91965\Documents\BDA SEM III\1 MOM\MOM AI Project\TryInHP\Bekal_Fort9.jpg
-    
-# C:\\Users\\91965\\Documents\\BDA SEM III\\1 MOM\\MOM AI Project\\TryInHP\\Agra_Fort0.jpg
-    
-# C:\Users\91965\Documents\BDA SEM III\1 MOM\MOM AI Project\Data\Jama Masjid\Jama_Masjid6.jpg
-
-# How far is Agra Fort from Taj Mahal?
-    
-# Who built Bekal Fort?
-    
-# When was Bekal Fort build?
-    
-# What is Jama masjid?
-
- 
-        
+	main()        
