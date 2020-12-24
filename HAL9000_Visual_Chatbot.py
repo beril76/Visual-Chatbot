@@ -107,7 +107,6 @@ def main():
              
     elif choice =="About":
         webbrowser.open_new_tab("about.html")
-    
          
 if __name__ == '__main__':
 	main()        
