@@ -89,7 +89,7 @@ def main():
         st.write(" Did I Get it Right?")
         choose=st.selectbox("Choose",x)
         if choose == "Yes":
-            name = "Text Data\\"+location+".txt"
+            name = "Text Data/"+location+".txt"
             with open(name, mode="r",encoding="utf-8" ) as input_file:
                 passage = input_file.read()
             chat(passage)
