@@ -40,9 +40,9 @@ def classify():
     place=spot[classes[0]]
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
-        #buf = io.BytesIO()
-        #image.save(buf, format='JPEG')
-        #byte_im = buf.getvalue()
+        buf = io.BytesIO()
+        image.save(buf, format='JPEG')
+        byte_im = buf.getvalue()
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         st.write("")
         
