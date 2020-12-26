@@ -144,7 +144,7 @@ def classify():
     img = np.expand_dims(img, axis=0)"""
     
     if uploaded_file:
-        image = Image.open(filename)
+        #image = Image.open(filename)
         #buf = io.BytesIO()
         #image.save(buf, format='JPEG')
         #byte_im = buf.getvalue()
