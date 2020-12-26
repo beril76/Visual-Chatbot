@@ -34,7 +34,9 @@ def classify():
     #ph="Bekal_Fort9.jpg"
     img = Image.open(uploaded_file)
 
-    img = load_img(uploaded_file, target_size=(227,227))
+    #img = load_img(uploaded_file, target_size=(227,227))
+    target_size=(227,227)
+    img = img.resize(target_size)
     img = img_to_array(img)
     img = np.expand_dims(img, axis=0)
     classes = model.predict_classes(img, batch_size=10)
