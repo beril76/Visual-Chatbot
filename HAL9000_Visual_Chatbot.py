@@ -58,14 +58,7 @@ class KerasApplication(NamedTuple):
         """
         return image.resize(self.input_shape)
 
-    """@st.cache()
-    def get_model(self) -> object:
-        """The Keras model with weights="imagenet"
 
-        Returns:
-            [object] -- An instance of the keras_application with weights="imagenet"
-        """
-        return self.keras_application(weights="imagenet")"""
 
     def preprocess_input(self, image: Image) -> Image:
         """Prepares the image for classification by the classifier
