@@ -40,6 +40,13 @@ def get_image_download_link(img):
     href = f'<a href="data:file/jpg;base64,{img_str}">Download result</a>'
     return href
 
+def get_binary_file_downloader_html(bin_file, file_label='File'):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    bin_str = base64.b64encode(data).decode()
+    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
+    return href
+
 def classify():
     st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420)
     st.write("Hi! May I help you with the place?")
@@ -59,9 +66,11 @@ def classify():
 
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     im = Image.open(uploaded_file)
-    a = np.asarray(im)
-    result = Image.fromarray(a)
-    filename = get_image_download_link(result)
+    #a = np.asarray(im)
+    #result = Image.fromarray(a)
+    filename = get_binary_file_downloader_html(uploaded_file, 'Picture')
+    #filename = get_image_download_link(result)
+
     st.markdown(filename, unsafe_allow_html=True)
 	
     img = load_img(filename, target_size=(227,227))
