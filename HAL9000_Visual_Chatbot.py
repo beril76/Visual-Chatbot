@@ -116,8 +116,9 @@ class KerasApplication(NamedTuple):
 DEFAULT_KERAS_APPLICATION_INDEX = 0
 KERAS_APPLICATIONS: List[KerasApplication] = [
     KerasApplication(
-        "AlexNet",
-        keras_application=alexnet.AlexNet,
+        "DenseNet121",
+        keras_application=densenet.DenseNet121,
+        url="https://keras.io/applications/#densenet"
     )
 ]      
  
