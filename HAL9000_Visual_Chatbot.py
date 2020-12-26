@@ -27,21 +27,39 @@ def file_selector(folder_path='.'):
     selected_filename = st.selectbox('Select a file', filenames)
     return os.path.join(folder_path, selected_filename)
 
+def get_image_download_link(img):
+    """Generates a link allowing the PIL image to be downloaded
+    in:  PIL image
+    out: href string
+    """
+    buffered = BytesIO()
+    img.save(buffered, format="JPEG")
+    img_str = base64.b64encode(buffered.getvalue()).decode()
+    href = f'<a href="data:file/jpg;base64,{img_str}">Download result</a>'
+    return href
+
 def classify():
     st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420)
     st.write("Hi! May I help you with the place?")
     #ph=st.text_input("Enter the image path .... ")
     model = load_model("AISUCCESS3_with_new_train.h5")
-    if st.checkbox('Select a file in current directory'):
+	
+    """if st.checkbox('Select a file in current directory'):
         folder_path = '.'
         if st.checkbox('Change directory'):
             folder_path = st.text_input('Enter folder path', '.')
         filename = file_selector(folder_path=folder_path)
-        st.write('You selected `%s`' % filename)
+        st.write('You selected `%s`' % filename)"""
 	
     #uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     #ph="Bekal_Fort9.jpg"
-   
+	
+
+    uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+    result = Image.fromarray(uploaded_file)
+    filename = get_image_download_link(result)
+    st.markdown(filename, unsafe_allow_html=True)
+	
     img = load_img(filename, target_size=(227,227))
   
     img = img_to_array(img)
