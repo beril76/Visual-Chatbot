@@ -6,7 +6,6 @@ import io
 import datetime
 from gtts import gTTS 
 import webbrowser
-from tempfile import NamedTemporaryFile
 
 # Language in which you want to convert 
 language = 'en'
@@ -41,10 +40,8 @@ def classify():
         st.write('You selected `%s`' % filename)
 	
     #uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-    #temp_file = NamedTemporaryFile(delete=False)
     #ph="Bekal_Fort9.jpg"
-    #img = Image.open(io.BytesIO(uploaded_file))
-
+   
     img = load_img(filename, target_size=(227,227))
   
     img = img_to_array(img)
@@ -54,8 +51,6 @@ def classify():
 
     place=spot[classes[0]]
     if filename is not None:
-    	#temp_file.write(uploaded_file.getvalue())
-    	#st.write(load_img(temp_file.name))
     	image = Image.open(filename)
     	#buf = io.BytesIO()
     	#image.save(buf, format='JPEG')
