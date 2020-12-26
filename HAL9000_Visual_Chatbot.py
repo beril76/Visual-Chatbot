@@ -56,7 +56,9 @@ def classify():
 	
 
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-    result = Image.fromarray(uploaded_file)
+    im = Image.open(uploaded_file)
+    a = np.asarray(im)
+    result = Image.fromarray(a)
     filename = get_image_download_link(result)
     st.markdown(filename, unsafe_allow_html=True)
 	
