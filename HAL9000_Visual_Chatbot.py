@@ -180,7 +180,7 @@ def classify():
 
 
         st.write(" ")
-        st.write("Classifying . . . . . . . . . . . . . . .")
+        
         st.write("Classified")
         st.subheader('You are at %s ' % predictions)
     return predictions
@@ -216,7 +216,7 @@ def main():
     choice = st.sidebar.selectbox("Menu",menu)
     if choice == "Chatbot":
         st.title("HAL9000")
-        st.subheader(" Welcome to your visual chatbot assistant HAL9000 v.2.1.0. Over Over! \n Let's Predict ")
+        st.subheader(" Welcome to your visual chatbot assistant HAL9000 v.2.1.0. \n Let's Predict ")
         location=classify()
         
         x=["Yes","No"]
