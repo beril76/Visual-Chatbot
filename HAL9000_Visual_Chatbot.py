@@ -32,8 +32,8 @@ class KerasApplication(NamedTuple):
     name: str
     keras_application: Callable
     input_shape: Tuple[int, int] = (227, 227)
-    preprocess_input_func: Callable = imagenet_utils.preprocess_input
-    decode_predictions_func: Callable = imagenet_utils.decode_predictions
+    #preprocess_input_func: Callable = imagenet_utils.preprocess_input
+    #decode_predictions_func: Callable = imagenet_utils.decode_predictions
     url: str = "https://keras.io/applications/"
 
     def load_image(self, image_path: str) -> Image:
@@ -131,12 +131,7 @@ def classify():
             folder_path = st.text_input('Enter folder path', '.')
         filename = file_selector(folder_path=folder_path)
         st.write('You selected `%s`' % filename)"""
-    selected_model = st.sidebar.selectbox(
-        "Image classifier model",
-        options=KERAS_APPLICATIONS,
-        index=DEFAULT_KERAS_APPLICATION_INDEX,
-        format_func=lambda x: x.name,
-    )
+
     
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     
