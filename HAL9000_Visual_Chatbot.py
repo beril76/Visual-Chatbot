@@ -132,15 +132,10 @@ def classify():
     st.write("Hi! May I help you with the place?")
     #ph=st.text_input("Enter the image path .... ")
     
-    """if st.checkbox('Select a file in current directory'):
-        folder_path = '.'
-        if st.checkbox('Change directory'):
-            folder_path = st.text_input('Enter folder path', '.')
-        filename = file_selector(folder_path=folder_path)
-        st.write('You selected `%s`' % filename)"""
 
     selected_model = st.sidebar.selectbox(
-        "Image classifier model",
+        #"Image classifier model",
+        ("Image Classifier Model"),
         options=KERAS_APPLICATIONS,
         index=DEFAULT_KERAS_APPLICATION_INDEX,
         #format_func=lambda x: x.name,
@@ -150,10 +145,7 @@ def classify():
     #ph="Bekal_Fort9.jpg"
     
 
-    """img = load_img(filename, target_size=(227,227))
-  
-    img = img_to_array(img)
-    img = np.expand_dims(img, axis=0)"""
+    
     
     if uploaded_file:
         #image = Image.open(filename)
