@@ -135,10 +135,10 @@ def get_resources_markdown() -> str:
 - [Keras](https://keras.io/)
   - [Keras Apps](https://keras.io/applications)
    
-- Images
-  - [ImageNet](http://www.image-net.org/)
-  - [Awesome Images](https://github.com/heyalexej/awesome-images)
-  - [Awesome-Streamlit Images](https://github.com/MarcSkovMadsen/awesome-streamlit/tree/master/gallery/image_classifier/images)
+- Know more
+  - [AlexNet](https://en.wikipedia.org/wiki/AlexNet)
+  - [Monument Recognition Using Deep Neural Networks](https://www.researchgate.net/publication/328820153_Monument_Recognition_Using_Deep_Neural_Networks)
+  - [Image based Indian monument recognition using convoluted neural networks](https://www.researchgate.net/publication/324493420_Image_based_Indian_monument_recognition_using_convoluted_neural_networks)
 """
 
 def classify():
