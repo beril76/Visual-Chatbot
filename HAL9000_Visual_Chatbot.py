@@ -27,7 +27,7 @@ predictor = Predictor.from_path("https://storage.googleapis.com/allennlp-public-
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.models import load_model
 
-class KerasApplication():
+class KerasApplication(NamedTuple):
     """We wrap a Keras Application into this class for ease of use"""
 
     name: str
@@ -109,9 +109,7 @@ class KerasApplication():
         spot={0:'Agra Fort',1:'Ajanta and Ellora Caves',2:'Amer Fort',3:'Bangalore Palace',4:'Basilica of Bom Jesus',5:'Bekal Fort',6:'Charminar',7:'City Palace',8:'Elephanta Cave',9:'Fatehpur Sikri',10:'Gateway of India',11:'Gingee Fort',12:'Golden Temple',13:'Golkonda Fort',14:'Gwalior Fort',15:'Hawa Mahal',16:'Hill Palace',17:'Howrah Bridge',18:'Humayuns Tomb',19:'India Gate',20:'Jama Masjid',21:'Janta Mantir',22:'Kaye Monastry',23:'Konark Sun Temple',24:'Lotus Temple',25:'Madurai Meenakshi Temple',26:'Mysore Palace',27:'Nalanda University',28:'Qutub Minar',29:'Ran ki Vav',30:'Rashtrapati Bhavan',31:'Red Fort',32:'Sanchi Stupa',33:'Shore Temple Mahabalipuram',34:'Taj Mahal',35:'Thanjavur Chola Temple',36:'Victoria Memorial',37:'Victoria Terminal',38:'Vidhana Soudha',39:'Vivekananda Rock Memorial'}
 
         place=spot[classes[0]]
-        #predictions = model.predict(image)
-        #top_predictions = self.decode_predictions_func(predictions)
-
+        
         report_progress_func("", 0)
 
         return place
@@ -119,6 +117,7 @@ class KerasApplication():
 DEFAULT_KERAS_APPLICATION_INDEX = 0
 KERAS_APPLICATIONS: List[KerasApplication] = [
     KerasApplication(
+         "Image Classifier Model"
     )
 ]      
      
@@ -147,8 +146,7 @@ def classify():
     st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420)
     st.write("Hi! May I help you with the place?")
     #ph=st.text_input("Enter the image path .... ")
-    
-
+ 
     selected_model = st.sidebar.selectbox(
         
         ("Image Classifier Model"),
@@ -160,9 +158,6 @@ def classify():
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     
     #ph="Bekal_Fort9.jpg"
-    
-
-    
     
     if uploaded_file:
         #image = Image.open(filename)
