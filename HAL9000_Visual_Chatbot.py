@@ -148,7 +148,7 @@ def classify():
         #buf = io.BytesIO()
         #image.save(buf, format='JPEG')
         #byte_im = buf.getvalue()
-        st.image(image, caption='Uploaded Image.', use_column_width=True)
+        st.image(uploaded_file, caption='Uploaded Image.', use_column_width=True)
         progress_bar = st.empty()
         progress = st.empty()
 
@@ -160,7 +160,7 @@ def classify():
                 progress_bar.progress(value)
                 progress.markdown(message)
         predictions = get_top_predictions(
-            image=image, report_progress_func=report_progress
+            image=uploaded_file, report_progress_func=report_progress
         )
 
 
