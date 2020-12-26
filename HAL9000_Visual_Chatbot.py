@@ -136,7 +136,7 @@ def get_resources_markdown() -> str:
 
 - [Keras](https://keras.io/)
   - [Keras Apps](https://keras.io/applications)
-    #- [{model.name} Docs]({model.url})
+   
 - Images
   - [ImageNet](http://www.image-net.org/)
   - [Awesome Images](https://github.com/heyalexej/awesome-images)
