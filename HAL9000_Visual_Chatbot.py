@@ -27,7 +27,7 @@ predictor = Predictor.from_path("https://storage.googleapis.com/allennlp-public-
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.models import load_model
 
-class KerasApplication(NamedTuple):
+class KerasApplication():
     """We wrap a Keras Application into this class for ease of use"""
 
     name: str
@@ -117,7 +117,6 @@ class KerasApplication(NamedTuple):
 DEFAULT_KERAS_APPLICATION_INDEX = 0
 KERAS_APPLICATIONS: List[KerasApplication] = [
     KerasApplication(
-         "Image Classifier Model"
     )
 ]      
      
