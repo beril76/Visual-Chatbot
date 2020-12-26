@@ -6,6 +6,8 @@ import io
 import datetime
 from gtts import gTTS 
 import webbrowser
+from io import BytesIO
+
 
 # Language in which you want to convert 
 language = 'en'
