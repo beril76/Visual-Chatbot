@@ -23,20 +23,30 @@ predictor = Predictor.from_path("https://storage.googleapis.com/allennlp-public-
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.models import load_model
  
+def file_selector(folder_path='.'):
+    filenames = os.listdir(folder_path)
+    selected_filename = st.selectbox('Select a file', filenames)
+    return os.path.join(folder_path, selected_filename)
+
 def classify():
     st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420)
     st.write("Hi! May I help you with the place?")
     #ph=st.text_input("Enter the image path .... ")
     model = load_model("AISUCCESS3_with_new_train.h5")
-    
-    uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+    if st.checkbox('Select a file in current directory'):
+        folder_path = '.'
+        if st.checkbox('Change directory'):
+            folder_path = st.text_input('Enter folder path', '.')
+        filename = file_selector(folder_path=folder_path)
+        st.write('You selected `%s`' % filename)
+	
+    #uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     #temp_file = NamedTemporaryFile(delete=False)
     #ph="Bekal_Fort9.jpg"
-    img = Image.open(io.BytesIO(uploaded_file))
+    #img = Image.open(io.BytesIO(uploaded_file))
 
-    #img = load_img(uploaded_file, target_size=(227,227))
-    target_size=(227,227)
-    img = img.resize(target_size)
+    img = load_img(filename, target_size=(227,227))
+  
     img = img_to_array(img)
     img = np.expand_dims(img, axis=0)
     classes = model.predict_classes(img, batch_size=10)
