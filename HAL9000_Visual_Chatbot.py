@@ -32,7 +32,7 @@ def classify():
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     #temp_file = NamedTemporaryFile(delete=False)
     #ph="Bekal_Fort9.jpg"
-    img = Image.open(uploaded_file)
+    img = Image.open(io.BytesIO(img_bytes))
 
     #img = load_img(uploaded_file, target_size=(227,227))
     target_size=(227,227)
