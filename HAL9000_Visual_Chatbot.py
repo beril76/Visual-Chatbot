@@ -92,7 +92,7 @@ class KerasApplication():
             (id, prediction, probability)
         """
         report_progress_func(
-            f"Loading {self.name} model ... (The first time this is done it may take several "
+            f"Loading model ... (The first time this is done it may take several "
             "minutes)",
             10,
         )
