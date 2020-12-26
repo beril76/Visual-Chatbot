@@ -68,7 +68,7 @@ def classify():
     im = Image.open(uploaded_file)
     #a = np.asarray(im)
     #result = Image.fromarray(a)
-    filename = get_binary_file_downloader_html(uploaded_file, 'Picture')
+    filename = get_binary_file_downloader_html(im, 'Picture')
     #filename = get_image_download_link(result)
 
     st.markdown(filename, unsafe_allow_html=True)
