@@ -30,9 +30,10 @@ def classify():
     model = load_model("AISUCCESS3_with_new_train.h5")
     
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-    temp_file = NamedTemporaryFile(delete=False)
+    #temp_file = NamedTemporaryFile(delete=False)
     #ph="Bekal_Fort9.jpg"
-    
+    img = Image.open(uploaded_file)
+
     img = load_img(uploaded_file, target_size=(227,227))
     img = img_to_array(img)
     img = np.expand_dims(img, axis=0)
@@ -40,14 +41,14 @@ def classify():
     spot={0:'Agra Fort',1:'Ajanta and Ellora Caves',2:'Amer Fort',3:'Bangalore Palace',4:'Basilica of Bom Jesus',5:'Bekal Fort',6:'Charminar',7:'City Palace',8:'Elephanta Cave',9:'Fatehpur Sikri',10:'Gateway of India',11:'Gingee Fort',12:'Golden Temple',13:'Golkonda Fort',14:'Gwalior Fort',15:'Hawa Mahal',16:'Hill Palace',17:'Howrah Bridge',18:'Humayuns Tomb',19:'India Gate',20:'Jama Masjid',21:'Janta Mantir',22:'Kaye Monastry',23:'Konark Sun Temple',24:'Lotus Temple',25:'Madurai Meenakshi Temple',26:'Mysore Palace',27:'Nalanda University',28:'Qutub Minar',29:'Ran ki Vav',30:'Rashtrapati Bhavan',31:'Red Fort',32:'Sanchi Stupa',33:'Shore Temple Mahabalipuram',34:'Taj Mahal',35:'Thanjavur Chola Temple',36:'Victoria Memorial',37:'Victoria Terminal',38:'Vidhana Soudha',39:'Vivekananda Rock Memorial'}
 
     place=spot[classes[0]]
-    if uploaded_file:
-    	temp_file.write(uploaded_file.getvalue())
-    	st.write(load_img(temp_file.name))
-    	#image = Image.open(uploaded_file)
+    if uploaded_file is not None:
+    	#temp_file.write(uploaded_file.getvalue())
+    	#st.write(load_img(temp_file.name))
+    	image = Image.open(uploaded_file)
     	#buf = io.BytesIO()
     	#image.save(buf, format='JPEG')
     	#byte_im = buf.getvalue()
-    	#st.image(image, caption='Uploaded Image.', use_column_width=True)
+    	st.image(image, caption='Uploaded Image.', use_column_width=True)
     	st.write(" ")
     	st.write("Classifying . . . . . . . . . . . . . . .")
     	st.write("Classified")
