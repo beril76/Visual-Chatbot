@@ -119,7 +119,6 @@ class KerasApplication():
 DEFAULT_KERAS_APPLICATION_INDEX = 0
 KERAS_APPLICATIONS: List[KerasApplication] = [
     KerasApplication(
-         "Image Classifier Model"
     )
 ]      
      
