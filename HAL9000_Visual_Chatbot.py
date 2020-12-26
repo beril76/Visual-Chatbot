@@ -122,6 +122,7 @@ KERAS_APPLICATIONS: List[KerasApplication] = [
          "Image Classifier Model"
     )
 ]      
+     
 def get_resources_markdown() -> str:
     """Some info regarding Resources
 
@@ -132,7 +133,7 @@ def get_resources_markdown() -> str:
         str -- A Markdown string with links to relevant resources
     """
 
-    #return f"""### Resources
+    return f"""### Resources
 
 - [Keras](https://keras.io/)
   - [Keras Apps](https://keras.io/applications)
@@ -141,8 +142,7 @@ def get_resources_markdown() -> str:
   - [ImageNet](http://www.image-net.org/)
   - [Awesome Images](https://github.com/heyalexej/awesome-images)
   - [Awesome-Streamlit Images](https://github.com/MarcSkovMadsen/awesome-streamlit/tree/master/gallery/image_classifier/images)
-
-
+"""
 
 def classify():
     st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420)
@@ -151,11 +151,11 @@ def classify():
     
 
     selected_model = st.sidebar.selectbox(
-        #"Image classifier model",
+        
         ("Image Classifier Model"),
         options=KERAS_APPLICATIONS,
         index=DEFAULT_KERAS_APPLICATION_INDEX,
-        #format_func=lambda x: x.name,
+        format_func=lambda x: x.name
     )
     st.sidebar.markdown(get_resources_markdown())
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
