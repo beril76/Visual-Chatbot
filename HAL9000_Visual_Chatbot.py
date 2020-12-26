@@ -77,7 +77,7 @@ class KerasApplication():
         image = self.to_input_shape(image)
         image = img_to_array(image)
         image = np.expand_dims(image, axis=0)
-        image = self.preprocess_input_func(image)
+        #image = self.preprocess_input_func(image)
         return image
 
     def get_top_predictions(
