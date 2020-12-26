@@ -119,13 +119,30 @@ class KerasApplication():
 DEFAULT_KERAS_APPLICATION_INDEX = 0
 KERAS_APPLICATIONS: List[KerasApplication] = [
     KerasApplication(
+         "Image Classifier Model"
     )
 ]      
- 
-def file_selector(folder_path='.'):
-    filenames = os.listdir(folder_path)
-    selected_filename = st.selectbox('Select a file', filenames)
-    return os.path.join(folder_path, selected_filename)
+def get_resources_markdown() -> str:
+    """Some info regarding Resources
+
+    Arguments:
+        model {KerasApplication} -- The KerasApplication employed
+
+    Returns:
+        str -- A Markdown string with links to relevant resources
+    """
+
+    #return f"""### Resources
+
+- [Keras](https://keras.io/)
+  - [Keras Apps](https://keras.io/applications)
+    #- [{model.name} Docs]({model.url})
+- Images
+  - [ImageNet](http://www.image-net.org/)
+  - [Awesome Images](https://github.com/heyalexej/awesome-images)
+  - [Awesome-Streamlit Images](https://github.com/MarcSkovMadsen/awesome-streamlit/tree/master/gallery/image_classifier/images)
+
+
 
 def classify():
     st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420)
@@ -140,6 +157,7 @@ def classify():
         index=DEFAULT_KERAS_APPLICATION_INDEX,
         #format_func=lambda x: x.name,
     )
+    st.sidebar.markdown(get_resources_markdown())
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     
     #ph="Bekal_Fort9.jpg"
