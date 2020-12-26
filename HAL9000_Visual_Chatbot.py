@@ -29,7 +29,7 @@ def file_selector(folder_path='.'):
     selected_filename = st.selectbox('Select a file', filenames)
     return os.path.join(folder_path, selected_filename)
 
-def get_image_download_link(img):
+def get_image_download_link(img, file_label='File'):
     """Generates a link allowing the PIL image to be downloaded
     in:  PIL image
     out: href string
@@ -37,7 +37,8 @@ def get_image_download_link(img):
     buffered = BytesIO()
     img.save(buffered, format="JPEG")
     img_str = base64.b64encode(buffered.getvalue()).decode()
-    href = f'<a href="data:file/jpg;base64,{img_str}">Download result</a>'
+    #href = f'<a href="data:file/jpg;base64,{img_str}">Download result</a>'
+    href = f'<a href="data:application/octet-stream;base64,{img_str}" download="{os.path.basename(img)}">Download {file_label}</a>'
     return href
 
 def get_binary_file_downloader_html(bin_file, file_label='File'):
@@ -60,16 +61,13 @@ def classify():
         filename = file_selector(folder_path=folder_path)
         st.write('You selected `%s`' % filename)"""
 	
-    #uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     #ph="Bekal_Fort9.jpg"
-	
-
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     im = Image.open(uploaded_file)
-    #a = np.asarray(im)
-    #result = Image.fromarray(a)
-    filename = get_binary_file_downloader_html(im, 'Picture')
-    #filename = get_image_download_link(result)
+    a = np.asarray(im)
+    result = Image.fromarray(a)
+    #filename = get_binary_file_downloader_html(im, 'Picture')
+    filename = get_image_download_link(result, 'Picture')
 
     st.markdown(filename, unsafe_allow_html=True)
 	
