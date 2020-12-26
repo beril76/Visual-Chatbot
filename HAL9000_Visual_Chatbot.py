@@ -72,8 +72,8 @@ class KerasApplication():
         """
         # For an explanation see
         # https://stackoverflow.com/questions/47555829/preprocess-input-method-in-keras
-        buf = io.BytesIO()
-        image.save(buf, format='JPEG')
+        buf = io.BytesIO(image)
+        #image.save(buf, format='JPEG')
         byte_im = buf.getvalue()
         image = self.to_input_shape(image)
         image = img_to_array(image)
