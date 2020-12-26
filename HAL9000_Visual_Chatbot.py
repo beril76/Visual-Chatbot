@@ -113,7 +113,11 @@ class KerasApplication(NamedTuple):
 
         return place
 
-    
+DEFAULT_KERAS_APPLICATION_INDEX = 0
+KERAS_APPLICATIONS: List[KerasApplication] = [
+    KerasApplication(
+    )
+]      
  
 def file_selector(folder_path='.'):
     filenames = os.listdir(folder_path)
@@ -132,7 +136,12 @@ def classify():
         filename = file_selector(folder_path=folder_path)
         st.write('You selected `%s`' % filename)"""
 
-    
+    selected_model = st.sidebar.selectbox(
+        "Image classifier model",
+        options=KERAS_APPLICATIONS,
+        index=DEFAULT_KERAS_APPLICATION_INDEX,
+        format_func=lambda x: x.name,
+    )
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     
     #ph="Bekal_Fort9.jpg"
@@ -159,7 +168,7 @@ def classify():
             else:
                 progress_bar.progress(value)
                 progress.markdown(message)
-        predictions = get_top_predictions(
+        predictions = selected_model.get_top_predictions(
             image=uploaded_file, report_progress_func=report_progress
         )
 
