@@ -7,7 +7,7 @@ import datetime
 from gtts import gTTS 
 import webbrowser
 from io import BytesIO
-
+import base64
 
 # Language in which you want to convert 
 language = 'en'
