@@ -154,7 +154,7 @@ def classify():
         ("Image Classifier Model"),
         options=KERAS_APPLICATIONS,
         index=DEFAULT_KERAS_APPLICATION_INDEX,
-        format_func=lambda x: x.name
+        #format_func=lambda x: x.name
     )
     st.sidebar.markdown(get_resources_markdown())
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
