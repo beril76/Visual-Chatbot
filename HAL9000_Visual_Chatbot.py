@@ -204,7 +204,7 @@ def chat(passage):
         date_string = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
         filename = "voice"+date_string+".ogg"
         myobj.save(filename)
-        name = "Text Data/"+filename
+        name = "Text_Data/"+filename
         audio_file = open(name, 'rb')
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format='audio/ogg')
@@ -223,7 +223,7 @@ def main():
         st.write(" Did I Get it Right?")
         choose=st.selectbox("Choose",x)
         if choose == "Yes":
-            name = "Text Data/"+location+".txt"
+            name = "Text_Data/"+location+".txt"
             with open(name, mode="r",encoding="utf-8" ) as input_file:
                 passage = input_file.read()
             chat(passage)
@@ -231,7 +231,7 @@ def main():
             st.write(" I'm really sorry for that.")
             labels=['Agra Fort','Ajanta and Ellora Caves','Amer Fort','Bangalore Palace','Basilica of Bom Jesus','Bekal Fort','Charminar','City Palace','Elephanta Cave','Fatehpur Sikri','Gateway of India','Gingee Fort','Golden Temple','Golkonda Fort','Gwalior Fort','Hawa Mahal','Hill Palace','Howrah Bridge','Humayuns Tomb','India Gate','Jama Masjid','Janta Mantir','Kaye Monastry','Konark Sun Temple','Lotus Temple','Madurai Meenakshi Temple','Mysore Palace','Nalanda University','Qutub Minar','Ran ki Vav','Rashtrapati Bhavan','Red Fort','Sanchi Stupa','Shore Temple Mahabalipuram','Taj Mahal','Thanjavur Chola Temple','Victoria Memorial','Victoria Terminal','Vidhana Soudha','Vivekananda Rock Memorial']
             tour= st.selectbox('Please Choose the location to continue chatting', labels )
-            name = "Text Data/"+tour+".txt"
+            name = "Text_Data/"+tour+".txt"
             with open(name, mode="r",encoding="utf-8" ) as input_file:
                 passage = input_file.read()
             chat(passage)
