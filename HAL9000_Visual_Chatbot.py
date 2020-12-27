@@ -216,7 +216,7 @@ def main():
     choice = st.sidebar.selectbox("Menu",menu)
     if choice == "Chatbot":
         st.title("HAL9000")
-        st.subheader(" Welcome to your visual chatbot assistant HAL9000 v.2.1.0. \n Let's Predict ")
+        st.subheader(" Welcome to your visual chatbot assistant HAL9000 v.2.1.0.")
         location=classify()
         
         x=["Yes","No"]
