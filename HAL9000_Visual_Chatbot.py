@@ -6,11 +6,9 @@
 import numpy as np 
 import os
 import io
-from typing import Callable, List, NamedTuple, Tuple
 import datetime
 from gtts import gTTS 
 import webbrowser
-from io import BytesIO
 
 # Language in which you want to convert 
 language = 'en'
@@ -59,8 +57,6 @@ class KerasApplication():
         """
         im = Image.open(image)
         return im.resize(self.input_shape)
-
-
 
     def preprocess_input(self, image: Image) -> Image:
         """Prepares the image for classification by the classifier
@@ -155,8 +151,6 @@ def classify():
     )
     st.sidebar.markdown(get_resources_markdown())
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-    
-    #ph="Bekal_Fort9.jpg"
     
     if uploaded_file:
         #image = Image.open(filename)
