@@ -137,7 +137,7 @@ def get_resources_markdown() -> str:
   - [Monument Recognition Using Deep Neural Networks](https://www.researchgate.net/publication/328820153_Monument_Recognition_Using_Deep_Neural_Networks)
   - [Image based Indian monument recognition using convoluted neural networks](https://www.researchgate.net/publication/324493420_Image_based_Indian_monument_recognition_using_convoluted_neural_networks)
 """
-
+global predictions
 def classify():
     st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420, use_column_width=True)
     st.write("Hi! May I help you with the place?")
