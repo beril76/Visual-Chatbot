@@ -142,7 +142,7 @@ def get_resources_markdown() -> str:
 """
 
 def classify():
-    st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=417, use_column_width=True) #420
+    st.image('https://t3.ftcdn.net/jpg/00/96/55/94/240_F_96559467_Fxgsa20HIuPGWywzEDnBMy3NokapCzxH.jpg',width=420, use_column_width=True)
     st.write("Hi! May I help you with the place?")
     #ph=st.text_input("Enter the image path .... ")
  
