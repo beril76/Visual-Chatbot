@@ -7,7 +7,7 @@ import numpy as np
 import os
 import io
 import datetime
-from typing import Callable, Tuple
+from typing import Callable, List, Tuple
 from gtts import gTTS 
 import webbrowser
 
