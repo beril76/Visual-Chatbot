@@ -7,6 +7,7 @@ import numpy as np
 import os
 import io
 import datetime
+from typing import Callable
 from gtts import gTTS 
 import webbrowser
 
